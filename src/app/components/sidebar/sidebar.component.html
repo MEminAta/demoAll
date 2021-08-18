@@ -1,0 +1,35 @@
+<div class="sidebar">
+  <div style="height:100px">
+    Logo
+  </div>
+  <div class="pt-3">
+    <div class="text-center">Muhammet Emin</div>
+    <div class="text-center">Atasayar</div>
+  </div>
+  <hr>
+
+  <div class="sidebar-menu">
+    <ul style="list-style-type: none;" class="pl-0">
+      <li *ngFor="let menu of menus" class="pb-3">
+        <div *ngIf="menu.type === 'dropdown'" class="color-yellow py-2 pl-3">
+          <i class="{{menu.icon}} mr-2"></i>
+          <span>{{menu.title}}</span>
+        </div>
+        <div *ngIf="menu.type === 'single-row'" class="color-yellow py-2 pl-3 click" [routerLink]="menu.routerLink">
+          <i class="{{menu.icon}} mr-2"></i>
+          <span>{{menu.title}}</span>
+        </div>
+        <div *ngIf="menu.type === 'dropdown'" class="mt-1">
+          <ul>
+            <li *ngFor="let submenu of menu.submenus">
+              <div class="click" [routerLink]="submenu.routerLink">
+                {{submenu.title}}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>

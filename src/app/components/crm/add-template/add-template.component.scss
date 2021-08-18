@@ -1,0 +1,74 @@
+@import "./src/styles.scss";
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+#pages > div {
+  margin: 100px auto 5vh;
+  width: 910px;
+  height: 1287px;
+  //width: 1008px;
+  //height: 1425.59px;
+  background-color: white;
+  color: black;
+}
+
+.toolbar {
+  position: fixed;
+  padding: 2%;
+  background-color: $black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 25%;
+}
+
+.dx-field-label {
+  padding-top: 8px;
+}
+
+.dx-field {
+  margin-bottom: 20px;
+}
+
+hr {
+  margin-top: 10px;
+}
+
+.editor-toolbar-top {
+  top: -123px;
+}
+
+::ng-deep .dx-icon {
+  color: black !important;
+}
+
+.bgc-white {
+  background-color: white;
+}
+
+.bgc-grey {
+  background-color: #eeeeee;
+}
+
+.bgc-trans {
+  background-color: transparent;
+}
+
+::ng-deep .dx-htmleditor-content {
+  border: 1px dotted grey;
+  color: black !important;
+  padding: 0;
+}
+
+.table-grey {
+  background-color: #eeeeee;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .pages > div {
+    margin: 3vh auto;
+  }
+}

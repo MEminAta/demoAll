@@ -1,0 +1,15 @@
+::ng-deep .myGantt {
+  ::ng-deep .dx-texteditor.dx-editor-underlined::after {
+    border-bottom: 0;
+  }
+}
+
+::ng-deep .myGantt {
+  ::ng-deep .dx-texteditor-input {
+    padding: 0 !important;
+  }
+}
+
+::ng-deep .dx-overlay-modal {
+  display: none;
+}

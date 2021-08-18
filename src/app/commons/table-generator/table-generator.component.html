@@ -1,0 +1,41 @@
+<dx-data-grid [dataSource]="dataSource"
+              [showBorders]="true"
+
+              [columnAutoWidth]="true"
+              [allowColumnResizing]="true"
+              [allowColumnReordering]="true"
+              [remoteOperations]="true">
+  <dxo-search-panel [visible]="true"></dxo-search-panel>
+  <dxo-state-storing [enabled]="true" type="localStorage" storageKey="apmTableGenerator_{{st}}"></dxo-state-storing>
+  <dxo-editing mode="batch"
+               [allowAdding]="devxMainTable.allowAdding"
+               [allowDeleting]="devxMainTable.allowDeleting"
+               [allowUpdating]="devxMainTable.allowUpdating"
+               [selectTextOnEditStart]="devxMainTable.selectTextOnEditStart"
+  
+               [startEditAction]="devxMainTable.startEditAction">
+  </dxo-editing>
+  <!--  <dxo-state-storing [storageKey]="dt.search" enabled></dxo-state-storing>-->
+  <dxo-filter-row [visible]="devxMainTable.filterRow"></dxo-filter-row>
+  <dxo-header-filter [visible]="devxMainTable.headerFilter"></dxo-header-filter>
+  <dxo-group-panel [visible]="devxMainTable.groupPanel"></dxo-group-panel>
+  <dxo-paging [pageSize]="devxMainTable.pageSize"></dxo-paging>
+  <dxo-pager
+    [showPageSizeSelector]="devxMainTable.showPageSizeSelector"
+    [allowedPageSizes]="allowedPageSizes"
+    [showInfo]="devxMainTable.showInfo">
+  </dxo-pager>
+  <dxo-export [enabled]="devxMainTable.export"></dxo-export>
+  <dxi-column *ngFor="let a of devxTable"
+              dataType="{{a.dataType}}"
+              dataField="{{a.dataField}}"
+              caption="{{a.caption}}"
+              [allowEditing]="a.allowEditing"
+              [visible]="a.canSee"
+              [width]="a.width == 0? 100 : a.width"
+              [allowResizing]="true">
+    <dxo-lookup *ngIf="a.isLookup" [dataSource]="lookupSource[a.id]" valueExpr="{{a.lookupValue}}"
+                displayExpr="{{a.lookupDisplay}}"></dxo-lookup>
+    <dxi-validation-rule *ngIf="a.isRequired" type="required"></dxi-validation-rule>
+  </dxi-column>
+</dx-data-grid>

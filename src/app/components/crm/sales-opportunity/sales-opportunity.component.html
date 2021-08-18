@@ -1,0 +1,130 @@
+<div class="main-card">
+  <div class="head-font text-center">
+    Satış Fırsatı Oluştur
+  </div>
+  <hr class="my-3">
+  <div class="row">
+    <div class="p-3 col-md-6">
+      Müşteri
+      <dx-select-box placeholder="Müşteri seçiniz"></dx-select-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Müşterideki İlgili Kişi
+      <dx-select-box placeholder="Müşterideki İlgili Kişiyi seçiniz"></dx-select-box>
+    </div>
+    <div class="p-3">
+      Satış Fırsatının Konusu
+      <dx-text-box placeholder="Satış Fırsatının Konusunu giriniz"></dx-text-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Tutar
+      <dx-number-box [value]="10500" [format]="currencyFormat" [showClearButton]="true" [showSpinButtons]="true">
+        <dxi-button name="currency" location="after" [options]="currencyButton"></dxi-button>
+        <dxi-button name="clear"></dxi-button>
+        <dxi-button name="spins"></dxi-button>
+      </dx-number-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Başarı Olasalığı
+      <div class="py-2 float-end">{{winRate * 10}}%</div>
+      <dx-slider [min]="1" [max]="10" [(value)]="winRate"></dx-slider>
+    </div>
+    <div class="p-3 col-md-6">
+      Aşama
+      <dx-select-box placeholder="Aşama seçiniz"></dx-select-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Durum
+      <dx-select-box placeholder="Durum seçiniz"></dx-select-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Tahmini Sonuçlanma Tarihi
+      <dx-date-box [value]="now" placeholder="Tahmini sonuçlanma tarihi giriniz"></dx-date-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Bölge
+      <dx-select-box placeholder="Bölge seçiniz"></dx-select-box>
+    </div>
+    <div class="p-3">
+      Detaylar
+      <dx-text-area placeholder="Detayları giriniz"></dx-text-area>
+    </div>
+    <div class="p-3 position-relative">
+      <!--      <dx-data-grid #groupDataGrid [dataSource]="productGroups" [masterDetail]="{ enabled: true, template: 'titles' }" [showBorders]="true">-->
+      <!--        <dxo-editing mode="batch" [allowAdding]="true" [allowDeleting]="true" [allowUpdating]="true" [allowDragging]="true"></dxo-editing>-->
+      <!--        <dxo-row-dragging [allowReordering]="true" [onReorder]="productGroupOnReorder" dropFeedbackMode="push"></dxo-row-dragging>-->
+      <!--        <dxo-search-panel [visible]="true"></dxo-search-panel>-->
+      <!--        &lt;!&ndash;        <dxo-state-storing [enabled]="true" type="localStorage" storageKey="sales-opportunity-product-group-table"></dxo-state-storing>&ndash;&gt;-->
+      <!--        <dxo-filter-row [visible]="true"></dxo-filter-row>-->
+      <!--        <dxo-header-filter [visible]="true"></dxo-header-filter>-->
+      <!--        <dxo-paging [pageSize]="30"></dxo-paging>-->
+      <!--        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10,30,50,100]" [showInfo]="true"></dxo-pager>-->
+      <!--        <dxo-export [enabled]="true"></dxo-export>-->
+      <!--        <dxi-column dataType="string" dataField="name" caption="Başlık"></dxi-column>-->
+      <!--        <dxi-column dataType="number" dataField="sortIndex" sortOrder="asc" [visible]="true"></dxi-column>-->
+      <!--        <div *dxTemplate="let title of 'titles'">-->
+      <!--          <dx-data-grid #productsDataGrid [dataSource]="products" [filterValue]="['groupIndex', '=', title.data.id]" [columnAutoWidth]="true">-->
+      <!--            <dxo-editing mode="batch" [allowAdding]="true" [allowDeleting]="true" [allowUpdating]="true" [allowDragging]="true"></dxo-editing>-->
+      <!--            <dxo-row-dragging [allowReordering]="true" [onReorder]="productsOnReorder" dropFeedbackMode="push"></dxo-row-dragging>-->
+      <!--            <dxo-search-panel [visible]="true"></dxo-search-panel>-->
+      <!--            <dxo-filter-row [visible]="true"></dxo-filter-row>-->
+      <!--            <dxo-header-filter [visible]="true"></dxo-header-filter>-->
+      <!--            <dxo-paging [pageSize]="30"></dxo-paging>-->
+      <!--            <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10,30,50,100]" [showInfo]="true"></dxo-pager>-->
+      <!--            <dxo-export [enabled]="true"></dxo-export>-->
+      <!--            <dxi-column dataType="string" dataField="productId" caption="Ürün" [setCellValue]="setStateProductValue">-->
+      <!--              <dxi-validation-rule type="required"></dxi-validation-rule>-->
+      <!--              <dxo-lookup [dataSource]="productTypes" valueExpr="id" displayExpr="name"></dxo-lookup>-->
+      <!--            </dxi-column>-->
+      <!--            <dxi-column dataType="string" dataField="unit" caption="Birim"></dxi-column>-->
+      <!--            <dxi-column dataType="number" dataField="amount" caption="Miktar"></dxi-column>-->
+      <!--            <dxi-column dataType="string" dataField="desc" caption="Detay"></dxi-column>-->
+      <!--            <dxi-column dataType="number" dataField="groupIndex" [visible]="true"></dxi-column>-->
+      <!--            <dxi-column dataType="number" dataField="sortIndex" sortOrder="asc" [visible]="true"></dxi-column>-->
+      <!--          </dx-data-grid>-->
+      <!--        </div>-->
+      <!--      </dx-data-grid>-->
+      <div class="add-group-btn">
+        <dx-text-box placeholder="Grup Ekle">
+          <dxi-button name="add" location="after" [options]="addGroupButton"></dxi-button>
+        </dx-text-box>
+      </div>
+      <dx-data-grid #dataGrid [dataSource]="products" keyExpr="id" [columnHidingEnabled]="true" [showBorders]="true" [columnAutoWidth]="true" (onRowValidating)="onRowValidating($event)">
+        <dxo-search-panel [visible]="true"></dxo-search-panel>
+        <!--        <dxo-state-storing [enabled]="true" type="localStorage" storageKey="sales-opportunity-product-group-table"></dxo-state-storing>-->
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+        <dxo-row-dragging [allowReordering]="true" [onReorder]="onReorder" [showDragIcons]="true" dropFeedbackMode="push"></dxo-row-dragging>
+        <dxo-paging [enabled]="true" [pageSize]="30"></dxo-paging>
+        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10,30,50,100]" [showInfo]="true"></dxo-pager>
+        <dxo-editing mode="popup" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true" [allowDragging]="true">
+          <dxo-popup title="Yeni Ürün Ekle/Düzenle" [showTitle]="true" [width]="700" [height]="450"></dxo-popup>
+          <dxo-form>
+            <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
+              <dxi-item dataField="productId"></dxi-item>
+              <dxi-item dataField="unit"></dxi-item>
+              <dxi-item dataField="amount"></dxi-item>
+              <dxi-item dataField="groupId"></dxi-item>
+              <dxi-item dataField="desc" [colSpan]="2"></dxi-item>
+            </dxi-item>
+          </dxo-form>
+        </dxo-editing>
+        <dxi-column dataType="string" dataField="productId" caption="Ürün" [setCellValue]="setStateProductValue">
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+          <dxo-lookup [dataSource]="productTypes" valueExpr="id" displayExpr="name"></dxo-lookup>
+        </dxi-column>
+        <dxi-column dataType="string" dataField="unit" caption="Birim"></dxi-column>
+        <dxi-column dataType="number" dataField="amount" caption="Miktar"></dxi-column>
+        <dxi-column dataType="string" dataField="desc" caption="Detay"></dxi-column>
+        <dxi-column dataType="string" dataField="groupId" caption="Grup" [groupIndex]="1">
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+          <dxo-lookup [dataSource]="groups" valueExpr="id" displayExpr="name"></dxo-lookup>
+        </dxi-column>
+      </dx-data-grid>
+    </div>
+  </div>
+</div>
+<dx-speed-dial-action icon="check" label="Kaydet"></dx-speed-dial-action>
+
+
+<!--            {{((data.data.amount * data.data.unitPrice - data.data.amount * data.data.unitPrice * data.data.discount / 100) + (data.data.amount * data.data.unitPrice - data.data.amount * data.data.unitPrice * data.data.discount / 100) * data.data.kdv / 100).toString() == "NaN" ? 0 : (data.data.amount * data.data.unitPrice - data.data.amount * data.data.unitPrice * data.data.discount / 100) + (data.data.amount * data.data.unitPrice - data.data.amount * data.data.unitPrice * data.data.discount / 100) * data.data.kdv / 100}}-->

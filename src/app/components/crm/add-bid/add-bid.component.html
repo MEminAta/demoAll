@@ -1,0 +1,269 @@
+<div class="main-card">
+  <div class="head-font text-center">
+    Teklif Oluştur
+  </div>
+  <hr class="my-3">
+  <div class="row p-3">
+    <div align="center" class="col-4 click p-3 page-header" [ngClass]="{'selected-page-header':pageIndex == 0}" (click)="pageToggle(0)">Teklif</div>
+    <div align="center" class="col-4 click p-3 page-header" [ngClass]="{'selected-page-header':pageIndex == 1}" (click)="pageToggle(1)">Ürünler</div>
+    <div align="center" class="col-4 click p-3 page-header" [ngClass]="{'selected-page-header':pageIndex == 2}" (click)="pageToggle(2)">Diğer</div>
+  </div>
+  
+  <div class="row" [hidden]="pageIndex != 0">
+    <div class="p-3 col-md-6">
+      Şablon
+      <dx-select-box placeholder="Şablon seçiniz"></dx-select-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Satış Fırsatı
+      <dx-select-box placeholder="Satış fırsatı seçiniz"></dx-select-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Müşteri
+      <dx-text-box [readOnly]="true" value="El-Kaide"></dx-text-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Müşterideki İlgili Kişi
+      <dx-text-box [readOnly]="true" value="Usame Bin Ladin"></dx-text-box>
+    </div>
+    <div class="p-3">
+      Konu
+      <dx-text-box [readOnly]="true" value="Çok uzun bir mesele"></dx-text-box>
+    </div>
+    <div class="p-3">
+      <div class="row px-3 pb-3">
+        <dx-button class="col-6" text="Giriş Metni" (onClick)="editorToggle(0)" [ngClass]="{'selectedBtn' : editorIndex==0}"></dx-button>
+        <dx-button class="col-6" text="Bitiş Metni" (onClick)="editorToggle(1)" [ngClass]="{'selectedBtn' : editorIndex==1}"></dx-button>
+      </div>
+      <dx-html-editor [hidden]="editorIndex == 1" class="html-editor">
+        <dxo-toolbar [multiline]="true">
+          <dxi-item name="undo"></dxi-item>
+          <dxi-item name="redo"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+          <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="bold"></dxi-item>
+          <dxi-item name="italic"></dxi-item>
+          <dxi-item name="strike"></dxi-item>
+          <dxi-item name="underline"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="alignLeft"></dxi-item>
+          <dxi-item name="alignCenter"></dxi-item>
+          <dxi-item name="alignRight"></dxi-item>
+          <dxi-item name="alignJustify"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="orderedList"></dxi-item>
+          <dxi-item name="bulletList"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="color"></dxi-item>
+          <dxi-item name="background"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="link"></dxi-item>
+          <dxi-item name="image"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="clear"></dxi-item>
+          <dxi-item name="codeBlock"></dxi-item>
+          <dxi-item name="blockquote"></dxi-item>
+        </dxo-toolbar>
+      </dx-html-editor>
+      <dx-html-editor [hidden]="editorIndex == 0" class="html-editor">
+        <dxo-toolbar [multiline]="true">
+          <dxi-item name="undo"></dxi-item>
+          <dxi-item name="redo"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+          <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="bold"></dxi-item>
+          <dxi-item name="italic"></dxi-item>
+          <dxi-item name="strike"></dxi-item>
+          <dxi-item name="underline"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="alignLeft"></dxi-item>
+          <dxi-item name="alignCenter"></dxi-item>
+          <dxi-item name="alignRight"></dxi-item>
+          <dxi-item name="alignJustify"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="orderedList"></dxi-item>
+          <dxi-item name="bulletList"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="color"></dxi-item>
+          <dxi-item name="background"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="link"></dxi-item>
+          <dxi-item name="image"></dxi-item>
+          <dxi-item name="separator"></dxi-item>
+          <dxi-item name="clear"></dxi-item>
+          <dxi-item name="codeBlock"></dxi-item>
+          <dxi-item name="blockquote"></dxi-item>
+        </dxo-toolbar>
+      </dx-html-editor>
+    </div>
+  </div>
+  
+  <div class="row" [hidden]="pageIndex != 1">
+    <div class="p-3">
+      <div class="add-group-btn">
+        <dx-text-box placeholder="Grup Ekle">
+          <dxi-button name="add" location="after" [options]="addGroupButton"></dxi-button>
+        </dx-text-box>
+      </div>
+      <dx-data-grid *ngIf="!firstCome" #dataGrid [dataSource]="products" keyExpr="id" [columnHidingEnabled]="true" [showBorders]="true" [columnAutoWidth]="true" (onRowValidating)="onRowValidating($event)">
+        <dxo-search-panel [visible]="true"></dxo-search-panel>
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+        <dxo-row-dragging [allowReordering]="true" [onReorder]="onReorder" [showDragIcons]="true" dropFeedbackMode="push"></dxo-row-dragging>
+        <dxo-paging [enabled]="true" [pageSize]="30"></dxo-paging>
+        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10,30,50,100]" [showInfo]="true"></dxo-pager>
+        <dxo-editing mode="popup" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true" [allowDragging]="true">
+          <dxo-popup title="Yeni Ürün Ekle/Düzenle" [showTitle]="true"></dxo-popup>
+          <dxo-form>
+            <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
+              <dxi-item dataField="productId"></dxi-item>
+              <dxi-item dataField="groupId"></dxi-item>
+              <dxi-item dataField="unit"></dxi-item>
+              <dxi-item dataField="amount"></dxi-item>
+              <dxi-item dataField="unitPrice"></dxi-item>
+              <dxi-item dataField="unitCost"></dxi-item>
+              <dxi-item dataField="discount"></dxi-item>
+              <dxi-item dataField="tax"></dxi-item>
+              <dxi-item dataField="currencyTypeId"></dxi-item>
+              <dxi-item dataField="discountType"></dxi-item>
+              <dxi-item dataField="desc" [colSpan]="2"></dxi-item>
+            </dxi-item>
+          </dxo-form>
+        </dxo-editing>
+        <dxi-column dataType="string" dataField="productId" caption="Ürün" [setCellValue]="setStateProductValue">
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+          <dxo-lookup [dataSource]="productTypes" valueExpr="id" displayExpr="name"></dxo-lookup>
+        </dxi-column>
+        <dxi-column dataType="string" dataField="unit" caption="Birim"></dxi-column>
+        <dxi-column dataType="number" dataField="amount" caption="Miktar"></dxi-column>
+        <dxi-column dataType="number" dataField="unitPrice" caption="Fiyat" cellTemplate="unitPrice">
+          <div *dxTemplate="let value of 'unitPrice'">
+            {{currency(value.data.currencyTypeId) + value.data.unitPrice}}
+          </div>
+        </dxi-column>
+        <dxi-column dataType="number" dataField="unitCost" caption="Maliyet" cellTemplate="unitCost">
+          <div *dxTemplate="let value of 'unitCost'">
+            {{currency(value.data.currencyTypeId) + value.data.unitCost}}
+          </div>
+        </dxi-column>
+        <dxi-column dataType="number" dataField="discount" caption="İndirim" cellTemplate="discount">
+          <div *dxTemplate="let value of 'discount'">
+            {{(value.data.discountType == '%' ? '%' : currency(value.data.currencyTypeId)) + value.data.discount}}
+          </div>
+        </dxi-column>
+        <dxi-column dataType="number" dataField="tax" caption="KDV" cellTemplate="tax">
+          <div *dxTemplate="let value of 'tax'">
+            %{{value.data.tax}}
+          </div>
+        </dxi-column>
+        <dxi-column dataType="number" caption="Tutar" cellTemplate="sum">
+          <div *dxTemplate="let value of 'sum'">
+            {{currency(value.data.currencyTypeId) + (value.data.amount * value.data.unitPrice - (value.data.discountType == '%' ? value.data.amount * value.data.unitPrice * value.data.discount / 100 : value.data.discount)).toString()}}
+          </div>
+        </dxi-column>
+        <dxi-column dataType="number" caption="Kâr" cellTemplate="profit">
+          <div *dxTemplate="let value of 'profit'">
+            {{currency(value.data.currencyTypeId) + ((value.data.amount * value.data.unitPrice - (value.data.discountType == '%' ? value.data.amount * value.data.unitPrice * value.data.discount / 100 : value.data.discount)) - value.data.amount * value.data.unitCost).toString()}}
+          </div>
+        </dxi-column>
+        <dxi-column dataType="number" caption="KDV Dahil" cellTemplate="sum2">
+          <div *dxTemplate="let value of 'sum2'">
+            {{currency(value.data.currencyTypeId) + ((value.data.amount * value.data.unitPrice - (value.data.discountType == '%' ? value.data.amount * value.data.unitPrice * value.data.discount / 100 : value.data.discount)) + (value.data.amount * value.data.unitPrice - (value.data.discountType == '%' ? value.data.amount * value.data.unitPrice * value.data.discount / 100 : value.data.discount)) * value.data.tax / 100).toString()}}
+          </div>
+        </dxi-column>
+        <dxi-column dataType="string" dataField="desc" caption="Detay"></dxi-column>
+        <dxi-column dataType="string" dataField="groupId" caption="Grup" [groupIndex]="1">
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+          <dxo-lookup [dataSource]="groups" valueExpr="id" displayExpr="name"></dxo-lookup>
+        </dxi-column>
+        
+        <dxi-column dataField="currencyTypeId" caption="Para Birimi" [visible]="false">
+          <dxo-lookup [dataSource]="currencyTypes" valueExpr="id" displayExpr="name"></dxo-lookup>
+        </dxi-column>
+        <dxi-column dataField="discountType" caption="İndirim Türü" [visible]="false">
+          <dxo-lookup [dataSource]="discountTypes"></dxo-lookup>
+        </dxi-column>
+      </dx-data-grid>
+      <div class="float-end footnote">Tutara KDV dahil değildir.</div>
+    </div>
+    <div class="p-3">
+      Ürün Sözleşmesi
+      <dx-file-uploader
+        [multiple]="true"
+        uploadMode="useButtons"
+        uploadUrl="https://js.devexpress.com/Demos/NetCore/FileUploader/Upload"
+        [maxFileSize]="5000000">
+      </dx-file-uploader>
+      <div class="footnote">Maksimum 5mb.</div>
+    </div>
+  </div>
+  
+  <div class="row" [hidden]="pageIndex != 2">
+    <div class="p-3 col-md-6">
+      Geçerlilik Tarihi
+      <dx-date-box [min]="now"></dx-date-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Müşteri Adresi
+      <dx-select-box placeholder="Müşteri adresini seçiniz"></dx-select-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Müşteri Telefon Numarası
+      <dx-select-box placeholder="Müşteri telefon numarasını seçiniz"></dx-select-box>
+    </div>
+    <div class="p-3 col-md-6">
+      Müşteri E-Postası
+      <dx-select-box placeholder="Müşteri e-postasını seçiniz"></dx-select-box>
+    </div>
+    <div class="p-3">
+      Proje Sahipleri
+      <dx-drop-down-box valueExpr="id" displayExpr="name" placeholder="Kişi Seçiniz...">
+        <div *dxTemplate="let data of 'content'">
+          <dx-tree-view #owner [selectByClick]="true" dataStructure="plain" keyExpr="id" parentIdExpr="departmentId" selectionMode="multiple" showCheckBoxesMode="normal" displayExpr="name"></dx-tree-view>
+        </div>
+      </dx-drop-down-box>
+    </div>
+    <div class="p-3">
+      Değiştirebilenler
+      <dx-drop-down-box valueExpr="id" displayExpr="name" placeholder="Kişi Seçiniz...">
+        <div *dxTemplate="let data of 'content'">
+          <dx-tree-view #changeable [selectByClick]="true" dataStructure="plain" keyExpr="id" parentIdExpr="departmentId" selectionMode="multiple" showCheckBoxesMode="normal" displayExpr="name"></dx-tree-view>
+        </div>
+      </dx-drop-down-box>
+    </div>
+    <div class="p-3">
+      Okuyabilenler
+      <dx-drop-down-box valueExpr="id" displayExpr="name" placeholder="Kişi Seçiniz...">
+        <div *dxTemplate="let data of 'content'">
+          <dx-tree-view #readable [selectByClick]="true" dataStructure="plain" keyExpr="id" parentIdExpr="departmentId" selectionMode="multiple" showCheckBoxesMode="normal" displayExpr="name"></dx-tree-view>
+        </div>
+      </dx-drop-down-box>
+    </div>
+  </div>
+</div>
+<dx-speed-dial-action icon="check" label="Kaydet"></dx-speed-dial-action>
+
+<!--<div class="spin-container" *ngIf="loader">-->
+<!--  <div class="lds-spinner">-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--  </div>-->
+<!--</div>-->

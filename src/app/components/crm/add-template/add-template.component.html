@@ -1,0 +1,1237 @@
+<div style="display:flex">
+  <div id="pages" class="col-9">
+    
+    <div style="position: relative" [hidden]="!defaultSettings.coverPage">
+      <div style="position: relative; width: 100%;">
+        <dx-html-editor
+          id="coverBackgroundEditor"
+          [(ngModel)]="defaultSettings.coverBackGroundEditorValue"
+          (mouseenter)="editorStatusChange('coverBackgroundEditor', 11, 1)"
+          (mouseleave)="editorStatusChange('coverBackgroundEditor', 11,2)"
+          (onFocusIn)="editorStatusChange('coverBackgroundEditor', 11, 3)"
+          (onFocusOut)="editorStatusChange('coverBackgroundEditor', 11, 4)"
+          [ngClass]="{
+            'editor-toolbar-top': editorStatus[11].editorHover || editorStatus[11].editorFocus,
+            'bgc-grey': editorStatus[11].editorHover || editorStatus[11].editorFocus,
+            'bgc-white': !(editorStatus[11].editorHover || editorStatus[11].editorFocus)
+          }"
+          style="position: absolute; width: 100%; z-index: 1" height="auto">
+          <dxo-toolbar>
+            <dxi-item name="undo"></dxi-item>
+            <dxi-item name="redo"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+            <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="bold"></dxi-item>
+            <dxi-item name="italic"></dxi-item>
+            <dxi-item name="strike"></dxi-item>
+            <dxi-item name="underline"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="alignLeft"></dxi-item>
+            <dxi-item name="alignCenter"></dxi-item>
+            <dxi-item name="alignRight"></dxi-item>
+            <dxi-item name="alignJustify"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="orderedList"></dxi-item>
+            <dxi-item name="bulletList"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="color"></dxi-item>
+            <dxi-item name="background"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="link"></dxi-item>
+            <dxi-item name="image"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="clear"></dxi-item>
+            <dxi-item name="codeBlock"></dxi-item>
+            <dxi-item name="blockquote"></dxi-item>
+          </dxo-toolbar>
+          <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+        </dx-html-editor>
+      </div>
+      <div class="page" style="position: relative;">
+        <div style="position: relative; width: 100%;">
+          <dx-html-editor
+            id="coverEditor"
+            [(ngModel)]="defaultSettings.coverEditorValue"
+            (mouseenter)="editorStatusChange('coverEditor', 8, 1)"
+            (mouseleave)="editorStatusChange('coverEditor', 8,2)"
+            (onFocusIn)="editorStatusChange('coverEditor', 8, 3)"
+            (onFocusOut)="editorStatusChange('coverEditor', 8, 4)"
+            [ngClass]="{
+            'editor-toolbar-top': editorStatus[8].editorHover || editorStatus[8].editorFocus,
+            'bgc-grey': editorStatus[8].editorHover || editorStatus[8].editorFocus,
+            'bgc-trans': !(editorStatus[8].editorHover || editorStatus[8].editorFocus)
+          }"
+            style="position: absolute; width: 100%; z-index: 1" height="auto">
+            <dxo-toolbar>
+              <dxi-item name="undo"></dxi-item>
+              <dxi-item name="redo"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+              <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="bold"></dxi-item>
+              <dxi-item name="italic"></dxi-item>
+              <dxi-item name="strike"></dxi-item>
+              <dxi-item name="underline"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="alignLeft"></dxi-item>
+              <dxi-item name="alignCenter"></dxi-item>
+              <dxi-item name="alignRight"></dxi-item>
+              <dxi-item name="alignJustify"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="orderedList"></dxi-item>
+              <dxi-item name="bulletList"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="color"></dxi-item>
+              <dxi-item name="background"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="link"></dxi-item>
+              <dxi-item name="image"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="clear"></dxi-item>
+              <dxi-item name="codeBlock"></dxi-item>
+              <dxi-item name="blockquote"></dxi-item>
+            </dxo-toolbar>
+            <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+          </dx-html-editor>
+          <dx-html-editor [value]="defaultSettings.coverEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+        </div>
+      </div>
+    </div>
+    
+    <div class="page" style="position: relative" [hidden]="!defaultSettings.entrancePageSplit">
+      <div style="position: relative; width: 100%;">
+        <dx-html-editor
+          id="headerEditorFirst"
+          [(ngModel)]="defaultSettings.headerEditorValue"
+          (mouseenter)="editorStatusChange('headerEditorFirst', 0, 1)"
+          (mouseleave)="editorStatusChange('headerEditorFirst', 0,2)"
+          (onFocusIn)="editorStatusChange('headerEditorFirst', 0, 3)"
+          (onFocusOut)="editorStatusChange('headerEditorFirst', 0, 4)"
+          [ngClass]="{
+            'editor-toolbar-top': editorStatus[0].editorHover || editorStatus[0].editorFocus,
+            'bgc-grey': editorStatus[0].editorHover || editorStatus[0].editorFocus,
+            'bgc-white': !(editorStatus[0].editorHover || editorStatus[0].editorFocus)
+          }"
+          style="position: absolute; width: 100%; z-index: 1" height="auto">
+          <dxo-toolbar>
+            <dxi-item name="undo"></dxi-item>
+            <dxi-item name="redo"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+            <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="bold"></dxi-item>
+            <dxi-item name="italic"></dxi-item>
+            <dxi-item name="strike"></dxi-item>
+            <dxi-item name="underline"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="alignLeft"></dxi-item>
+            <dxi-item name="alignCenter"></dxi-item>
+            <dxi-item name="alignRight"></dxi-item>
+            <dxi-item name="alignJustify"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="orderedList"></dxi-item>
+            <dxi-item name="bulletList"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="color"></dxi-item>
+            <dxi-item name="background"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="link"></dxi-item>
+            <dxi-item name="image"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="clear"></dxi-item>
+            <dxi-item name="codeBlock"></dxi-item>
+            <dxi-item name="blockquote"></dxi-item>
+          </dxo-toolbar>
+          <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+        </dx-html-editor>
+        <dx-html-editor [value]="defaultSettings.headerEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+      </div>
+      <div *ngIf="defaultSettings.companyInfos" style="margin-bottom: 20px">
+        <div style="font-size:2vw">Atasayar Teknoloji A.Ş.</div>
+        <div style="font-size:1vw">Kültür Mahallesi, D-100 Yan Yol, 349/A, NO:13, Atasayar Plaza, Düzce</div>
+        <div style="font-size:1vw">+90 380 444 84 12</div>
+      </div>
+      <div *ngIf="defaultSettings.title != ''" align="center" style="font-size:1.5vw; margin-bottom: 20px">{{defaultSettings.title}}</div>
+      <div style="float:left; width: 100%">
+        <div style="float:left; margin-bottom: 20px">
+          <div style="font-size:1.1vw" *ngIf="defaultSettings.customer">Algün İnşaat</div>
+          <ng-template [ngIf]="defaultSettings.customerCompany">
+            <div style="font-size:1.1vw">Algün LTD LPG TYT AYT Anonim İnşaat Şirketi</div>
+            <div style="font-size:1vw">Çoban Mahallesi, D-100 Yan Yol, 349/A, NO:13, Algün Plaza, Düzce</div>
+          </ng-template>
+          <ng-template [ngIf]="defaultSettings.customerContact">
+            <div style="font-size:1.1vw">+90 380 444 84 12</div>
+            <div style="font-size:1.1vw">loremipsum@example.com</div>
+          </ng-template>
+          <ng-template [ngIf]="defaultSettings.customerTax">
+            <div style="font-size:1vw">V.D.: Bura ne bilmyiom</div>
+            <div style="font-size:1vw">VKN: 1234567890</div>
+          </ng-template>
+        </div>
+        <div style="float:right; margin-bottom: 20px">
+          <div style="font-size:1vw" *ngIf="defaultSettings.date"><span style="font-weight: bold">Tarih:</span> {{date | date : defaultSettings.shorDate ? 'shortDate' : 'fullDate'}}</div>
+          <div style="font-size:1vw" *ngIf="defaultSettings.endDate"><span style="font-weight: bold">Geçerlilik Tarihi:</span> {{endDate | date : defaultSettings.shorDate ? 'shortDate' : 'fullDate'}}</div>
+          <div style="font-size:1vw" *ngIf="defaultSettings.reference"><span style="font-weight: bold">{{defaultSettings.referenceText == '' ? 'Referans' : defaultSettings.referenceText}}:</span> 1</div>
+        </div>
+      </div>
+      <div style="font-size:1.1vw" *ngIf="defaultSettings.customerRelatedPerson">Sayın Joe Sample dikkatine;</div>
+      <div style="font-size:1.1vw" *ngIf="defaultSettings.subject">İsimsiz teklif ama çok uzun</div>
+      <div style="font-size:1.1vw" *ngIf="defaultSettings.revisionInfo">Bu teklif Konu(#1) revizyonudur.</div>
+      <div style="position: relative; width: 100%; margin-top: 20px">
+        <dx-html-editor
+          id="entranceEditorFirst"
+          [(ngModel)]="defaultSettings.entranceEditorValue"
+          (mouseenter)="editorStatusChange('entranceEditorFirst', 1, 1)"
+          (mouseleave)="editorStatusChange('entranceEditorFirst', 1,2)"
+          (onFocusIn)="editorStatusChange('entranceEditorFirst', 1, 3)"
+          (onFocusOut)="editorStatusChange('entranceEditorFirst', 1, 4)"
+          [ngClass]="{
+            'editor-toolbar-top': editorStatus[1].editorHover || editorStatus[1].editorFocus,
+            'bgc-grey': editorStatus[1].editorHover || editorStatus[1].editorFocus,
+            'bgc-white': !(editorStatus[1].editorHover || editorStatus[1].editorFocus)
+          }"
+          style="position: absolute; width: 100%; z-index: 1" height="auto">
+          <dxo-toolbar>
+            <dxi-item name="undo"></dxi-item>
+            <dxi-item name="redo"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+            <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="bold"></dxi-item>
+            <dxi-item name="italic"></dxi-item>
+            <dxi-item name="strike"></dxi-item>
+            <dxi-item name="underline"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="alignLeft"></dxi-item>
+            <dxi-item name="alignCenter"></dxi-item>
+            <dxi-item name="alignRight"></dxi-item>
+            <dxi-item name="alignJustify"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="orderedList"></dxi-item>
+            <dxi-item name="bulletList"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="color"></dxi-item>
+            <dxi-item name="background"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="link"></dxi-item>
+            <dxi-item name="image"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="clear"></dxi-item>
+            <dxi-item name="codeBlock"></dxi-item>
+            <dxi-item name="blockquote"></dxi-item>
+          </dxo-toolbar>
+          <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+        </dx-html-editor>
+        <dx-html-editor [value]="defaultSettings.entranceEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+      </div>
+      <div *ngIf="defaultSettings.pageNo" style="position:absolute; bottom:30px; right: 30px; z-index: 10">Sayfa No</div>
+      <div style="position: absolute; width: 88.3%; bottom:50px">
+        <div style="position: relative; width: 100%;">
+          <dx-html-editor
+            id="bottomEditorThird"
+            [(ngModel)]="defaultSettings.bottomEditorValue"
+            (mouseenter)="editorStatusChange('bottomEditorThird', 10, 1)"
+            (mouseleave)="editorStatusChange('bottomEditorThird', 10,2)"
+            (onFocusIn)="editorStatusChange('bottomEditorThird', 10, 3)"
+            (onFocusOut)="editorStatusChange('bottomEditorThird', 10, 4)"
+            [ngClass]="{
+            'editor-toolbar-top': editorStatus[10].editorHover || editorStatus[10].editorFocus,
+            'bgc-grey': editorStatus[10].editorHover || editorStatus[10].editorFocus,
+            'bgc-white': !(editorStatus[10].editorHover || editorStatus[10].editorFocus)
+          }"
+            style="position: absolute; width: 100%; z-index: 1" height="auto">
+            <dxo-toolbar>
+              <dxi-item name="undo"></dxi-item>
+              <dxi-item name="redo"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+              <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="bold"></dxi-item>
+              <dxi-item name="italic"></dxi-item>
+              <dxi-item name="strike"></dxi-item>
+              <dxi-item name="underline"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="alignLeft"></dxi-item>
+              <dxi-item name="alignCenter"></dxi-item>
+              <dxi-item name="alignRight"></dxi-item>
+              <dxi-item name="alignJustify"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="orderedList"></dxi-item>
+              <dxi-item name="bulletList"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="color"></dxi-item>
+              <dxi-item name="background"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="link"></dxi-item>
+              <dxi-item name="image"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="clear"></dxi-item>
+              <dxi-item name="codeBlock"></dxi-item>
+              <dxi-item name="blockquote"></dxi-item>
+            </dxo-toolbar>
+            <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+          </dx-html-editor>
+          <dx-html-editor [value]="defaultSettings.bottomEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+        </div>
+      </div>
+    </div>
+    
+    <div class="page" style="position:relative;">
+      <div style="position: relative; width: 100%;">
+        <dx-html-editor
+          id="headerEditorSecond"
+          [(ngModel)]="defaultSettings.headerEditorValue"
+          (mouseenter)="editorStatusChange('headerEditorSecond', 2, 1)"
+          (mouseleave)="editorStatusChange('headerEditorSecond', 2,2)"
+          (onFocusIn)="editorStatusChange('headerEditorSecond', 2, 3)"
+          (onFocusOut)="editorStatusChange('headerEditorSecond', 2, 4)"
+          [ngClass]="{
+            'editor-toolbar-top': editorStatus[2].editorHover || editorStatus[2].editorFocus,
+            'bgc-grey': editorStatus[2].editorHover || editorStatus[2].editorFocus,
+            'bgc-white': !(editorStatus[2].editorHover || editorStatus[2].editorFocus)
+          }"
+          style="position: absolute; width: 100%; z-index: 1" height="auto">
+          <dxo-toolbar>
+            <dxi-item name="undo"></dxi-item>
+            <dxi-item name="redo"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+            <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="bold"></dxi-item>
+            <dxi-item name="italic"></dxi-item>
+            <dxi-item name="strike"></dxi-item>
+            <dxi-item name="underline"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="alignLeft"></dxi-item>
+            <dxi-item name="alignCenter"></dxi-item>
+            <dxi-item name="alignRight"></dxi-item>
+            <dxi-item name="alignJustify"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="orderedList"></dxi-item>
+            <dxi-item name="bulletList"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="color"></dxi-item>
+            <dxi-item name="background"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="link"></dxi-item>
+            <dxi-item name="image"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="clear"></dxi-item>
+            <dxi-item name="codeBlock"></dxi-item>
+            <dxi-item name="blockquote"></dxi-item>
+          </dxo-toolbar>
+          <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+        </dx-html-editor>
+        <dx-html-editor [value]="defaultSettings.headerEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+      </div>
+      <div [hidden]="defaultSettings.entrancePageSplit">
+        <div *ngIf="defaultSettings.companyInfos" style="margin-bottom: 20px">
+          <div style="font-size:2vw">Atasayar Teknoloji A.Ş.</div>
+          <div style="font-size:1vw">Kültür Mahallesi, D-100 Yan Yol, 349/A, NO:13, Atasayar Plaza, Düzce</div>
+          <div style="font-size:1vw">+90 380 444 84 12</div>
+        </div>
+        <div *ngIf="defaultSettings.title != ''" align="center" style="font-size:1.5vw; margin-bottom: 20px">{{defaultSettings.title}}</div>
+        <div style="float:left; width: 100%">
+          <div style="float:left; margin-bottom: 20px">
+            <div style="font-size:1.1vw" *ngIf="defaultSettings.customer">Algün İnşaat</div>
+            <ng-template [ngIf]="defaultSettings.customerCompany">
+              <div style="font-size:1.1vw">Algün LTD LPG TYT AYT Anonim İnşaat Şirketi</div>
+              <div style="font-size:1vw">Çoban Mahallesi, D-100 Yan Yol, 349/A, NO:13, Algün Plaza, Düzce</div>
+            </ng-template>
+            <ng-template [ngIf]="defaultSettings.customerContact">
+              <div style="font-size:1.1vw">+90 380 444 84 12</div>
+              <div style="font-size:1.1vw">loremipsum@example.com</div>
+            </ng-template>
+            <ng-template [ngIf]="defaultSettings.customerTax">
+              <div style="font-size:1vw">V.D.: Bura ne bilmyiom</div>
+              <div style="font-size:1vw">VKN: 1234567890</div>
+            </ng-template>
+          </div>
+          <div style="float:right; margin-bottom: 20px">
+            <div style="font-size:1vw" *ngIf="defaultSettings.date"><span style="font-weight: bold">Tarih:</span> {{date | date : defaultSettings.shorDate ? 'shortDate' : 'fullDate'}}</div>
+            <div style="font-size:1vw" *ngIf="defaultSettings.endDate"><span style="font-weight: bold">Geçerlilik Tarihi:</span> {{endDate | date : defaultSettings.shorDate ? 'shortDate' : 'fullDate'}}</div>
+            <div style="font-size:1vw" *ngIf="defaultSettings.reference"><span style="font-weight: bold">{{defaultSettings.referenceText == '' ? 'Referans' : defaultSettings.referenceText}}:</span> 1</div>
+          </div>
+        </div>
+        <div style="font-size:1.1vw" *ngIf="defaultSettings.customerRelatedPerson">Sayın Joe Sample dikkatine;</div>
+        <div style="font-size:1.1vw" *ngIf="defaultSettings.subject">İsimsiz teklif ama çok uzun</div>
+        <div style="font-size:1.1vw" *ngIf="defaultSettings.revisionInfo">Bu teklif Konu(#1) revizyonudur.</div>
+        <div style="position: relative; width: 100%; margin-top: 20px">
+          <dx-html-editor
+            id="entranceEditorSecond"
+            [(ngModel)]="defaultSettings.entranceEditorValue"
+            (mouseenter)="editorStatusChange('entranceEditorSecond', 3, 1)"
+            (mouseleave)="editorStatusChange('entranceEditorSecond', 3,2)"
+            (onFocusIn)="editorStatusChange('entranceEditorSecond', 3, 3)"
+            (onFocusOut)="editorStatusChange('entranceEditorSecond', 3, 4)"
+            [ngClass]="{
+            'editor-toolbar-top': editorStatus[3].editorHover || editorStatus[3].editorFocus,
+            'bgc-grey': editorStatus[3].editorHover || editorStatus[3].editorFocus,
+            'bgc-white': !(editorStatus[3].editorHover || editorStatus[3].editorFocus)
+          }"
+            style="position: absolute; width: 100%; z-index: 1" height="auto">
+            <dxo-toolbar>
+              <dxi-item name="undo"></dxi-item>
+              <dxi-item name="redo"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+              <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="bold"></dxi-item>
+              <dxi-item name="italic"></dxi-item>
+              <dxi-item name="strike"></dxi-item>
+              <dxi-item name="underline"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="alignLeft"></dxi-item>
+              <dxi-item name="alignCenter"></dxi-item>
+              <dxi-item name="alignRight"></dxi-item>
+              <dxi-item name="alignJustify"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="orderedList"></dxi-item>
+              <dxi-item name="bulletList"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="color"></dxi-item>
+              <dxi-item name="background"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="link"></dxi-item>
+              <dxi-item name="image"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="clear"></dxi-item>
+              <dxi-item name="codeBlock"></dxi-item>
+              <dxi-item name="blockquote"></dxi-item>
+            </dxo-toolbar>
+            <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+          </dx-html-editor>
+          <dx-html-editor [value]="defaultSettings.entranceEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+        </div>
+      </div>
+      <table class="table" [ngClass]="{'table-grey':defaultSettings.tableGrey}">
+        <thead>
+        <tr>
+          <th>{{defaultSettings.productColumnHeadId == 1 ? "Ürün" : defaultSettings.productColumnHeadId == 2 ? "Hizmet" : "Ürün/Hizmet"}}</th>
+          <th *ngIf="defaultSettings.amount">Miktar</th>
+          <th *ngIf="defaultSettings.unitColumnHeadId == 2">Birim</th>
+          <th *ngIf="defaultSettings.unitPriceColumn" style="min-width: 115px">Birim Fiyat</th>
+          <th *ngIf="defaultSettings.productDiscount">İndirim</th>
+          <th *ngIf="defaultSettings.productTaxColumn">Vergi</th>
+          <th *ngIf="defaultSettings.totalPriceColumn">Tutar</th>
+        </tr>
+        </thead>
+        <tbody style="position:relative">
+        <tr style="position: relative">
+          <td>
+            <img *ngIf="defaultSettings.productImg" style="float:left" src="https://productimages.hepsiburada.net/s/32/500/10384085712946.jpg" width="100px" height="100px" alt="">
+            <ng-template [ngIf]="defaultSettings.productNo">1)</ng-template>
+            <span style="font-size:14px; font-weight: bold">
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 1">Hikvison - Ultra Cam - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 2">Hikvison - Ultra Cam</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 3">Hikvison - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 4">Ultra Cam - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 5">Hikvison</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 6">Ultra Cam</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 7">XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productCode"><br>Ürün Kodu:123456</ng-template>
+            </span>
+            <div></div> <!-- dont delete -->
+            <ng-template [ngIf]="defaultSettings.productDetail"><br><span style="position: absolute; bottom: 0;">Otomatik IP Adress Tanımlı Akıllı Kamera</span></ng-template>
+          </td>
+          <td *ngIf="defaultSettings.amount" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">10{{defaultSettings.unitColumnHeadId == 1 ? " adet" : ""}}</div>
+          </td>
+          <td *ngIf="defaultSettings.unitColumnHeadId == 2" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">Adet</div>
+          </td>
+          <td *ngIf="defaultSettings.unitPriceColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);"><span
+              style="text-decoration: line-through">{{defaultSettings.discountedPriceColumn ? "10₺" : ""}}</span> {{defaultSettings.discountedPriceColumn ? "9₺" : "10₺"}}</div>
+          </td>
+          <td *ngIf="defaultSettings.productDiscount" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">%10</div>
+          </td>
+          <td *ngIf="defaultSettings.productTaxColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">%18</div>
+          </td>
+          <td *ngIf="defaultSettings.totalPriceColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">90₺</div>
+          </td>
+        </tr>
+        <tr style="position: relative">
+          <td>
+            <img *ngIf="defaultSettings.productImg" style="float:left" src="https://productimages.hepsiburada.net/s/32/500/10384085712946.jpg" width="100px" height="100px" alt="">
+            <ng-template [ngIf]="defaultSettings.productNo">1)</ng-template>
+            <span style="font-size:14px; font-weight: bold">
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 1">Hikvison - Ultra Cam - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 2">Hikvison - Ultra Cam</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 3">Hikvison - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 4">Ultra Cam - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 5">Hikvison</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 6">Ultra Cam</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 7">XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productCode"><br>Ürün Kodu:123456</ng-template>
+            </span>
+            <div></div> <!-- dont delete -->
+            <ng-template [ngIf]="defaultSettings.productDetail"><br><span style="position: absolute; bottom: 0;">Otomatik IP Adress Tanımlı Akıllı Kamera</span></ng-template>
+          </td>
+          <td *ngIf="defaultSettings.amount" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">10{{defaultSettings.unitColumnHeadId == 1 ? " adet" : ""}}</div>
+          </td>
+          <td *ngIf="defaultSettings.unitColumnHeadId == 2" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">Adet</div>
+          </td>
+          <td *ngIf="defaultSettings.unitPriceColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);"><span
+              style="text-decoration: line-through">{{defaultSettings.discountedPriceColumn ? "10₺" : ""}}</span> {{defaultSettings.discountedPriceColumn ? "9₺" : "10₺"}}</div>
+          </td>
+          <td *ngIf="defaultSettings.productDiscount" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">%10</div>
+          </td>
+          <td *ngIf="defaultSettings.productTaxColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">%18</div>
+          </td>
+          <td *ngIf="defaultSettings.totalPriceColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">90₺</div>
+          </td>
+        </tr>
+        <tr style="position: relative">
+          <td>
+            <img *ngIf="defaultSettings.productImg" style="float:left" src="https://productimages.hepsiburada.net/s/32/500/10384085712946.jpg" width="100px" height="100px" alt="">
+            <ng-template [ngIf]="defaultSettings.productNo">1)</ng-template>
+            <span style="font-size:14px; font-weight: bold">
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 1">Hikvison - Ultra Cam - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 2">Hikvison - Ultra Cam</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 3">Hikvison - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 4">Ultra Cam - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 5">Hikvison</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 6">Ultra Cam</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 7">XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productCode"><br>Ürün Kodu:123456</ng-template>
+            </span>
+            <div></div> <!-- dont delete -->
+            <ng-template [ngIf]="defaultSettings.productDetail"><br><span style="position: absolute; bottom: 0;">Otomatik IP Adress Tanımlı Akıllı Kamera</span></ng-template>
+          </td>
+          <td *ngIf="defaultSettings.amount" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">10{{defaultSettings.unitColumnHeadId == 1 ? " adet" : ""}}</div>
+          </td>
+          <td *ngIf="defaultSettings.unitColumnHeadId == 2" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">Adet</div>
+          </td>
+          <td *ngIf="defaultSettings.unitPriceColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);"><span
+              style="text-decoration: line-through">{{defaultSettings.discountedPriceColumn ? "10₺" : ""}}</span> {{defaultSettings.discountedPriceColumn ? "9₺" : "10₺"}}</div>
+          </td>
+          <td *ngIf="defaultSettings.productDiscount" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">%10</div>
+          </td>
+          <td *ngIf="defaultSettings.productTaxColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">%18</div>
+          </td>
+          <td *ngIf="defaultSettings.totalPriceColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">90₺</div>
+          </td>
+        </tr>
+        <tr style="position: relative">
+          <td>
+            <img *ngIf="defaultSettings.productImg" style="float:left" src="https://productimages.hepsiburada.net/s/32/500/10384085712946.jpg" width="100px" height="100px" alt="">
+            <ng-template [ngIf]="defaultSettings.productNo">1)</ng-template>
+            <span style="font-size:14px; font-weight: bold">
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 1">Hikvison - Ultra Cam - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 2">Hikvison - Ultra Cam</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 3">Hikvison - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 4">Ultra Cam - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 5">Hikvison</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 6">Ultra Cam</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 7">XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productCode"><br>Ürün Kodu:123456</ng-template>
+            </span>
+            <div></div> <!-- dont delete -->
+            <ng-template [ngIf]="defaultSettings.productDetail"><br><span style="position: absolute; bottom: 0;">Otomatik IP Adress Tanımlı Akıllı Kamera</span></ng-template>
+          </td>
+          <td *ngIf="defaultSettings.amount" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">10{{defaultSettings.unitColumnHeadId == 1 ? " adet" : ""}}</div>
+          </td>
+          <td *ngIf="defaultSettings.unitColumnHeadId == 2" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">Adet</div>
+          </td>
+          <td *ngIf="defaultSettings.unitPriceColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);"><span
+              style="text-decoration: line-through">{{defaultSettings.discountedPriceColumn ? "10₺" : ""}}</span> {{defaultSettings.discountedPriceColumn ? "9₺" : "10₺"}}</div>
+          </td>
+          <td *ngIf="defaultSettings.productDiscount" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">%10</div>
+          </td>
+          <td *ngIf="defaultSettings.productTaxColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">%18</div>
+          </td>
+          <td *ngIf="defaultSettings.totalPriceColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">90₺</div>
+          </td>
+        </tr>
+        <tr style="position: relative">
+          <td>
+            <img *ngIf="defaultSettings.productImg" style="float:left" src="https://productimages.hepsiburada.net/s/32/500/10384085712946.jpg" width="100px" height="100px" alt="">
+            <ng-template [ngIf]="defaultSettings.productNo">1)</ng-template>
+            <span style="font-size:14px; font-weight: bold">
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 1">Hikvison - Ultra Cam - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 2">Hikvison - Ultra Cam</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 3">Hikvison - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 4">Ultra Cam - XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 5">Hikvison</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 6">Ultra Cam</ng-template>
+              <ng-template [ngIf]="defaultSettings.productColumnStyleId == 7">XfS/H 108mgpx</ng-template>
+              <ng-template [ngIf]="defaultSettings.productCode"><br>Ürün Kodu:123456</ng-template>
+            </span>
+            <div></div> <!-- dont delete -->
+            <ng-template [ngIf]="defaultSettings.productDetail"><br><span style="position: absolute; bottom: 0;">Otomatik IP Adress Tanımlı Akıllı Kamera</span></ng-template>
+          </td>
+          <td *ngIf="defaultSettings.amount" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">10{{defaultSettings.unitColumnHeadId == 1 ? " adet" : ""}}</div>
+          </td>
+          <td *ngIf="defaultSettings.unitColumnHeadId == 2" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">Adet</div>
+          </td>
+          <td *ngIf="defaultSettings.unitPriceColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);"><span
+              style="text-decoration: line-through">{{defaultSettings.discountedPriceColumn ? "10₺" : ""}}</span> {{defaultSettings.discountedPriceColumn ? "9₺" : "10₺"}}</div>
+          </td>
+          <td *ngIf="defaultSettings.productDiscount" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">%10</div>
+          </td>
+          <td *ngIf="defaultSettings.productTaxColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">%18</div>
+          </td>
+          <td *ngIf="defaultSettings.totalPriceColumn" style="position: relative">
+            <div style="margin: 0;position: absolute;top: 50%; left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">90₺</div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <hr>
+      <div style="float: left; width: 100%; margin-bottom: 20px">
+        <div style="float:right; width:600px" [ngClass]="{'table-grey':defaultSettings.tableGrey}">
+          <div *ngIf="defaultSettings.subTotal" style="float: right; width: 200px; border-bottom: 2px solid white; padding-right: 5px">
+            <div style="float: right;">
+              90₺
+            </div>
+          </div>
+          <div *ngIf="defaultSettings.subTotal" style="float: right; width: 400px; border-bottom: 2px solid white; border-right: 2px solid white; padding-right: 5px">
+            <div style="float: right">
+              Ara Toplam (10,00 USD indirim içerir)
+            </div>
+          </div>
+          <div *ngIf="defaultSettings.totalDiscount" style="float: right; width: 200px; border-bottom: 2px solid white; padding-right: 5px">
+            <div style="float: right;">
+              4,50₺
+            </div>
+          </div>
+          <div *ngIf="defaultSettings.totalDiscount" style="float: right; width: 400px; border-bottom: 2px solid white; border-right: 2px solid white; padding-right: 5px">
+            <div style="float: right">
+              İndirim (%5)
+            </div>
+          </div>
+          <div *ngIf="defaultSettings.totalDiscount" style="float: right; width: 200px; border-bottom: 2px solid white; padding-right: 5px">
+            <div style="float: right;">
+              85,50₺
+            </div>
+          </div>
+          <div *ngIf="defaultSettings.totalDiscount" style="float: right; width: 400px; border-bottom: 2px solid white; border-right: 2px solid white; padding-right: 5px">
+            <div style="float: right">
+              İndirimli Toplam
+            </div>
+          </div>
+          <div *ngIf="defaultSettings.totalTax" style="float: right; width: 200px; border-bottom: 2px solid white; padding-right: 5px">
+            <div style="float: right;">
+              15,39₺
+            </div>
+          </div>
+          <div *ngIf="defaultSettings.totalTax" style="float: right; width: 400px; border-bottom: 2px solid white; border-right: 2px solid white; padding-right: 5px">
+            <div style="float: right">
+              KDV (%18)
+            </div>
+          </div>
+          <div *ngIf="defaultSettings.totalPrice" style="float: right; width: 200px; border-bottom: 2px solid white; padding-right: 5px">
+            <div style="float: right;">
+              100,89₺
+            </div>
+          </div>
+          <div *ngIf="defaultSettings.totalPrice" style="float: right; width: 400px; border-bottom: 2px solid white; border-right: 2px solid white; padding-right: 5px">
+            <div style="float: right">
+              Genel Toplam
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="defaultSettings.total" style="float: right; width: 100%; margin-bottom: 20px">
+        <div style="float: right">Toplam 100,89 USD olarak hesaplandı.</div>
+      </div>
+      <div style="font-size: 0.1px">Silme</div>
+      <div *ngIf="defaultSettings.expiry" style="margin-bottom: 20px">Ödeme vadesi (gün): 30</div>
+      <div [hidden]="defaultSettings.exitPageSplit" style="position: relative; width: 100%;">
+        <dx-html-editor
+          id="exitEditorFirst"
+          [(ngModel)]="defaultSettings.exitEditorValue"
+          (mouseenter)="editorStatusChange('exitEditorFirst', 4, 1)"
+          (mouseleave)="editorStatusChange('exitEditorFirst', 4,2)"
+          (onFocusIn)="editorStatusChange('exitEditorFirst', 4, 3)"
+          (onFocusOut)="editorStatusChange('exitEditorFirst', 4, 4)"
+          [ngClass]="{
+            'editor-toolbar-top': editorStatus[4].editorHover || editorStatus[4].editorFocus,
+            'bgc-grey': editorStatus[4].editorHover || editorStatus[4].editorFocus,
+            'bgc-white': !(editorStatus[4].editorHover || editorStatus[4].editorFocus)
+          }"
+          style="position: absolute; width: 100%; z-index: 1" height="auto">
+          <dxo-toolbar>
+            <dxi-item name="undo"></dxi-item>
+            <dxi-item name="redo"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+            <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="bold"></dxi-item>
+            <dxi-item name="italic"></dxi-item>
+            <dxi-item name="strike"></dxi-item>
+            <dxi-item name="underline"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="alignLeft"></dxi-item>
+            <dxi-item name="alignCenter"></dxi-item>
+            <dxi-item name="alignRight"></dxi-item>
+            <dxi-item name="alignJustify"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="orderedList"></dxi-item>
+            <dxi-item name="bulletList"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="color"></dxi-item>
+            <dxi-item name="background"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="link"></dxi-item>
+            <dxi-item name="image"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="clear"></dxi-item>
+            <dxi-item name="codeBlock"></dxi-item>
+            <dxi-item name="blockquote"></dxi-item>
+          </dxo-toolbar>
+          <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+        </dx-html-editor>
+        <dx-html-editor [value]="defaultSettings.exitEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+      </div>
+      <div *ngIf="defaultSettings.pageNo" style="position:absolute; bottom:30px; right: 30px; z-index: 10">Sayfa No</div>
+      <div style="position: absolute; width: 88.3%; bottom:50px">
+        <div style="position: relative; width: 100%;">
+          <dx-html-editor
+            id="bottomEditorFirst"
+            [(ngModel)]="defaultSettings.bottomEditorValue"
+            (mouseenter)="editorStatusChange('bottomEditorFirst', 7, 1)"
+            (mouseleave)="editorStatusChange('bottomEditorFirst', 7,2)"
+            (onFocusIn)="editorStatusChange('bottomEditorFirst', 7, 3)"
+            (onFocusOut)="editorStatusChange('bottomEditorFirst', 7, 4)"
+            [ngClass]="{
+            'editor-toolbar-top': editorStatus[7].editorHover || editorStatus[7].editorFocus,
+            'bgc-grey': editorStatus[7].editorHover || editorStatus[7].editorFocus,
+            'bgc-white': !(editorStatus[7].editorHover || editorStatus[7].editorFocus)
+          }"
+            style="position: absolute; width: 100%; z-index: 1" height="auto">
+            <dxo-toolbar>
+              <dxi-item name="undo"></dxi-item>
+              <dxi-item name="redo"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+              <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="bold"></dxi-item>
+              <dxi-item name="italic"></dxi-item>
+              <dxi-item name="strike"></dxi-item>
+              <dxi-item name="underline"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="alignLeft"></dxi-item>
+              <dxi-item name="alignCenter"></dxi-item>
+              <dxi-item name="alignRight"></dxi-item>
+              <dxi-item name="alignJustify"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="orderedList"></dxi-item>
+              <dxi-item name="bulletList"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="color"></dxi-item>
+              <dxi-item name="background"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="link"></dxi-item>
+              <dxi-item name="image"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="clear"></dxi-item>
+              <dxi-item name="codeBlock"></dxi-item>
+              <dxi-item name="blockquote"></dxi-item>
+            </dxo-toolbar>
+            <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+          </dx-html-editor>
+          <dx-html-editor [value]="defaultSettings.bottomEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+        </div>
+      </div>
+    </div>
+    
+    <div class="page" style="position: relative" [hidden]="!defaultSettings.exitPageSplit">
+      <div style="position: relative; width: 100%;">
+        <dx-html-editor
+          id="entranceEditorThird"
+          [(ngModel)]="defaultSettings.entranceEditorValue"
+          (mouseenter)="editorStatusChange('entranceEditorThird', 6, 1)"
+          (mouseleave)="editorStatusChange('entranceEditorThird', 6,2)"
+          (onFocusIn)="editorStatusChange('entranceEditorThird', 6, 3)"
+          (onFocusOut)="editorStatusChange('entranceEditorThird', 6, 4)"
+          [ngClass]="{
+            'editor-toolbar-top': editorStatus[6].editorHover || editorStatus[6].editorFocus,
+            'bgc-grey': editorStatus[6].editorHover || editorStatus[6].editorFocus,
+            'bgc-white': !(editorStatus[6].editorHover || editorStatus[6].editorFocus)
+          }"
+          style="position: absolute; width: 100%; z-index: 1" height="auto">
+          <dxo-toolbar>
+            <dxi-item name="undo"></dxi-item>
+            <dxi-item name="redo"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+            <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="bold"></dxi-item>
+            <dxi-item name="italic"></dxi-item>
+            <dxi-item name="strike"></dxi-item>
+            <dxi-item name="underline"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="alignLeft"></dxi-item>
+            <dxi-item name="alignCenter"></dxi-item>
+            <dxi-item name="alignRight"></dxi-item>
+            <dxi-item name="alignJustify"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="orderedList"></dxi-item>
+            <dxi-item name="bulletList"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="color"></dxi-item>
+            <dxi-item name="background"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="link"></dxi-item>
+            <dxi-item name="image"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="clear"></dxi-item>
+            <dxi-item name="codeBlock"></dxi-item>
+            <dxi-item name="blockquote"></dxi-item>
+          </dxo-toolbar>
+          <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+        </dx-html-editor>
+        <dx-html-editor [value]="defaultSettings.headerEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+      </div>
+      <div style="position: relative; width: 100%;">
+        <dx-html-editor
+          id="exitEditorSecond"
+          [(ngModel)]="defaultSettings.exitEditorValue"
+          (mouseenter)="editorStatusChange('exitEditorSecond', 5, 1)"
+          (mouseleave)="editorStatusChange('exitEditorSecond', 5,2)"
+          (onFocusIn)="editorStatusChange('exitEditorSecond', 5, 3)"
+          (onFocusOut)="editorStatusChange('exitEditorSecond', 5, 4)"
+          [ngClass]="{
+            'editor-toolbar-top': editorStatus[5].editorHover || editorStatus[5].editorFocus,
+            'bgc-grey': editorStatus[5].editorHover || editorStatus[5].editorFocus,
+            'bgc-white': !(editorStatus[5].editorHover || editorStatus[5].editorFocus)
+          }"
+          style="position: absolute; width: 100%; z-index: 1" height="auto">
+          <dxo-toolbar>
+            <dxi-item name="undo"></dxi-item>
+            <dxi-item name="redo"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+            <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="bold"></dxi-item>
+            <dxi-item name="italic"></dxi-item>
+            <dxi-item name="strike"></dxi-item>
+            <dxi-item name="underline"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="alignLeft"></dxi-item>
+            <dxi-item name="alignCenter"></dxi-item>
+            <dxi-item name="alignRight"></dxi-item>
+            <dxi-item name="alignJustify"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="orderedList"></dxi-item>
+            <dxi-item name="bulletList"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="color"></dxi-item>
+            <dxi-item name="background"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="link"></dxi-item>
+            <dxi-item name="image"></dxi-item>
+            <dxi-item name="separator"></dxi-item>
+            <dxi-item name="clear"></dxi-item>
+            <dxi-item name="codeBlock"></dxi-item>
+            <dxi-item name="blockquote"></dxi-item>
+          </dxo-toolbar>
+          <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+        </dx-html-editor>
+        <dx-html-editor [value]="defaultSettings.exitEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+      </div>
+      <div *ngIf="defaultSettings.pageNo" style="position:absolute; bottom:30px; right: 30px; z-index: 10">Sayfa No</div>
+      <div style="position: absolute; width: 88.3%; bottom:50px">
+        <div style="position: relative; width: 100%;">
+          <dx-html-editor
+            id="bottomEditorSecond"
+            [(ngModel)]="defaultSettings.bottomEditorValue"
+            (mouseenter)="editorStatusChange('bottomEditorSecond', 9, 1)"
+            (mouseleave)="editorStatusChange('bottomEditorSecond', 9,2)"
+            (onFocusIn)="editorStatusChange('bottomEditorSecond', 9, 3)"
+            (onFocusOut)="editorStatusChange('bottomEditorSecond', 9, 4)"
+            [ngClass]="{
+            'editor-toolbar-top': editorStatus[9].editorHover || editorStatus[9].editorFocus,
+            'bgc-grey': editorStatus[9].editorHover || editorStatus[9].editorFocus,
+            'bgc-white': !(editorStatus[9].editorHover || editorStatus[9].editorFocus)
+          }"
+            style="position: absolute; width: 100%; z-index: 1" height="auto">
+            <dxo-toolbar>
+              <dxi-item name="undo"></dxi-item>
+              <dxi-item name="redo"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="size" [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"></dxi-item>
+              <dxi-item name="font" [acceptedValues]="['Arial', 'Courier New', 'Georgia', 'Impact', 'Lucida Console', 'Tahoma', 'Times New Roman', 'Verdana']"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="bold"></dxi-item>
+              <dxi-item name="italic"></dxi-item>
+              <dxi-item name="strike"></dxi-item>
+              <dxi-item name="underline"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="alignLeft"></dxi-item>
+              <dxi-item name="alignCenter"></dxi-item>
+              <dxi-item name="alignRight"></dxi-item>
+              <dxi-item name="alignJustify"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="orderedList"></dxi-item>
+              <dxi-item name="bulletList"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="header" [acceptedValues]="[false, 1, 2, 3, 4, 5]"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="color"></dxi-item>
+              <dxi-item name="background"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="link"></dxi-item>
+              <dxi-item name="image"></dxi-item>
+              <dxi-item name="separator"></dxi-item>
+              <dxi-item name="clear"></dxi-item>
+              <dxi-item name="codeBlock"></dxi-item>
+              <dxi-item name="blockquote"></dxi-item>
+            </dxo-toolbar>
+            <dxo-media-resizing [enabled]=true></dxo-media-resizing>
+          </dx-html-editor>
+          <dx-html-editor [value]="defaultSettings.bottomEditorValue" style="margin-bottom: 20px"></dx-html-editor>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="col-3">
+    <div class="toolbar" style="height:100%; overflow-y: scroll;">
+      <div class="dx-field">
+        <div class="dx-field-label">Şablon Adı</div>
+        <div class="dx-field-value">
+          <dx-text-box stylingMode="underlined" [(value)]="defaultSettings.templateName"></dx-text-box>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">Yazı Tipi</div>
+        <div class="dx-field-value">
+          <dx-select-box [dataSource]="fontFamilyTypes" [(value)]="defaultSettings.fontFamilyId" displayExpr="name" valueExpr="id" (onValueChanged)="fontFamilyChange()"></dx-select-box>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">Kenar Genişliği</div>
+        <div class="dx-field-value">
+          <dx-number-box [(value)]="defaultSettings.paddingX" valueChangeEvent="keyup" [min]="0" [max]="20" (onValueChanged)="paddingChange(0)"></dx-number-box>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">Tepe Genişliği</div>
+        <div class="dx-field-value">
+          <dx-number-box [(value)]="defaultSettings.paddingY" valueChangeEvent="keyup" [min]="0" [max]="20" (onValueChanged)="paddingChange(1)"></dx-number-box>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">Kapak Oluştur</div>
+        <div class="dx-field-value">
+          <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.coverPage"></dx-check-box>
+        </div>
+      </div>
+      
+      
+      <div class="click" (click)="entranceToggle()">
+        <i class="fa fa-angle-right" style="width: 12px" *ngIf="!entrance"></i>
+        <i class="fa fa-angle-down" style="width: 12px" *ngIf="entrance"></i>
+        Giriş
+      </div>
+      <div class="my-2" *ngIf="entrance">
+        <div class="dx-field">
+          <div class="dx-field-label">Sayfayı Ayır</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.entrancePageSplit"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Firma Bilgileri</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.companyInfos"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Başlık</div>
+          <div class="dx-field-value">
+            <dx-text-box [(value)]="defaultSettings.title" valueChangeEvent="keyup"></dx-text-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Kısa Tarih</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.shorDate"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Tarih</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.date"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Geçerlilik Tarihi</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.endDate"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Referans</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.reference"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Referans Metni</div>
+          <div class="dx-field-value">
+            <dx-text-box [(value)]="defaultSettings.referenceText" valueChangeEvent="keyup"></dx-text-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Müşteri</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.customer"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Müşteri Şirketi</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.customerCompany"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">İletişim Bilgileri</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.customerContact"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Vergi Bilgisi</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.customerTax"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">İlgili Kişi</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.customerRelatedPerson"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Konu</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.subject"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Revizasyon Bilgisi</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.revisionInfo"></dx-check-box>
+          </div>
+        </div>
+      </div>
+      <hr>
+      
+      
+      <div class="click" (click)="productsAndServicesToggle()">
+        <i class="fa fa-angle-right" style="width: 12px" *ngIf="!productsAndServices"></i>
+        <i class="fa fa-angle-down" style="width: 12px" *ngIf="productsAndServices"></i>
+        Ürünler ve Hizmetler
+      </div>
+      <div class="my-2" *ngIf="productsAndServices">
+        <div class="dx-field">
+          <div class="dx-field-label">Gri Tablo</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.tableGrey"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Ürün Yazılışı</div>
+          <div class="dx-field-value">
+            <dx-select-box class="m-0 mt-1" [dataSource]="productColumnStyleTypes" [(value)]="defaultSettings.productColumnStyleId" valueExpr="id" displayExpr="name"></dx-select-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Ürün Kodu</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.productCode"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Ürün Resmi</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.productImg"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Ürün Detayı</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.productDetail"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Ürün Başlığı</div>
+          <div class="dx-field-value">
+            <dx-select-box class="m-0 mt-1" [dataSource]="productColumnHeadTypes" [(value)]="defaultSettings.productColumnHeadId" valueExpr="id" displayExpr="name"></dx-select-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Ürün Sıra No</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.productNo"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Miktar Sütunu</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.amount"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Birim Sütunu</div>
+          <div class="dx-field-value">
+            <dx-select-box class="m-0 mt-1" [dataSource]="unitColumnHeadTypes" [(value)]="defaultSettings.unitColumnHeadId" valueExpr="id" displayExpr="name"></dx-select-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Birim Fiyat Sütunu</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.unitPriceColumn"></dx-check-box>
+          </div>
+        </div>
+        <div *ngIf="defaultSettings.unitPriceColumn" class="dx-field">
+          <div class="dx-field-label">İnidirmli Fiyat</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.discountedPriceColumn"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Vergi Sütunu</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.productTaxColumn"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Tutar Sütunu</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.totalPriceColumn"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">İndirim Sütunu</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.productDiscount"></dx-check-box>
+          </div>
+        </div>
+        
+        <div class="dx-field">
+          <div class="dx-field-label">Ara Tutar</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.subTotal"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Tutar İndirimi</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.totalDiscount"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Vergi Tutarı</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.totalTax"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Genel Tutar</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.totalPrice"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Çevrilmiş Tutar</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.total"></dx-check-box>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="click" (click)="exitToggle()">
+        <i class="fa fa-angle-right" style="width: 12px" *ngIf="!exit"></i>
+        <i class="fa fa-angle-down" style="width: 12px" *ngIf="exit"></i>
+        Çıkış
+      </div>
+      <div class="my-2" *ngIf="exit">
+        <div class="dx-field">
+          <div class="dx-field-label">Sayfayı Ayır</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.exitPageSplit"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Ödeme Vadesi</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.expiry"></dx-check-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Sayfa Numarası</div>
+          <div class="dx-field-value">
+            <dx-check-box class="m-0 mt-1" [(value)]="defaultSettings.pageNo"></dx-check-box>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>

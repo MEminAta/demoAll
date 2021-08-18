@@ -1,1 +1,148 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~devextreme/dist/css/dx.material.purple.dark.css";
+@import "~devexpress-gantt/dist/dx-gantt.min.css";
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+
+// mt-5 gibi ifadeleri 100 e kadar yapar yüzdelik     ex: mt-47
+@each $space in [margin, padding] {
+  @for $i from 6 through 100 {
+    .#{str-slice($space, 1, 1)}-#{$i} {
+      #{$space}: #{$i}vh #{$i}vw;
+    }
+    @each $dimension in [x, y] {
+      .#{str-slice($space, 1, 1) + $dimension}-#{$i} {
+        @if $dimension == x {
+          @each $direction in [left, right] {
+            #{$space}-#{$direction}: #{$i}vw;
+          }
+        } @else {
+          @each $direction in [top, bottom] {
+            #{$space}-#{$direction}: #{$i}vh;
+          }
+        }
+      }
+    }
+
+    @each $direction in [right,top,left,bottom] {
+      $unit: "";
+      @if $direction == top or $direction == bottom {
+        $unit: vh;
+      } @else {
+        $unit: vw;
+      }
+
+      .#{str-slice($space, 1, 1) + str-slice($direction, 1, 1)}-#{$i} {
+        #{$space}-#{$direction}: #{$i}#{$unit} !important;
+      }
+    }
+  }
+}
+
+// vh-100 gibi ifaedelere ara sayı yüzdelik     ex: vw-80
+@each $dimension in [height, width] {
+  $unit: "";
+  @if $dimension == height {
+    $unit: vh;
+  } @else {
+    $unit: vw;
+  }
+  @for $i from 1 through 100 {
+    .v#{str-slice($dimension, 1, 1)}-#{$i} {
+      #{$dimension}: #{$i+$unit} !important;
+    }
+  }
+}
+
+
+$black: #363640;
+$grey: #5D5D65;
+$violet: #9C27B0;
+
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+
+body {
+  background-color: $grey;
+}
+
+.head-font {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.click {
+  cursor: pointer;
+}
+
+.main-card {
+  padding: 5% 5%;
+  margin: 5% 10%;
+  background-color: $black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.page-header {
+  border-bottom: 1px solid $grey;
+}
+
+.selected-page-header {
+  border-bottom: 3px solid $violet;
+  font-weight: bold
+}
+
+.footnote {
+  font-size: small;
+  font-weight: lighter;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .main-card {
+    margin: 0 0;
+    padding-bottom: 70px;
+  }
+}

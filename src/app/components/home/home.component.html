@@ -1,0 +1,69 @@
+<dx-gantt
+  class="myGantt"
+  [taskListWidth]="700"
+  scaleType="weeks"
+  height="700"
+  [rootValue]="-1">
+  
+  <dxo-tasks [dataSource]="gorev"></dxo-tasks>
+  <!--  <dxo-dependencies [dataSource]="dependencies"></dxo-dependencies>-->
+  <!--  <dxo-resources [dataSource]="resources"></dxo-resources>-->
+  <!--  <dxo-resource-assignments [dataSource]="resourceAssignments"></dxo-resource-assignments>-->
+  <dxo-editing [enabled]="true"></dxo-editing>
+  
+  <dxi-column width="auto" dataField="id" caption="Id"></dxi-column>
+  <dxi-column minWidth="150" width="auto" dataField="title" caption="Proje" cellTemplate="template1">
+    <div *dxTemplate="let data of 'template1'">
+      <dx-text-box
+        [text]="data.value"
+        (onBlur)="post(data.data, $event.component._changedValue, 'title')">
+      </dx-text-box>
+    </div>
+  </dxi-column>
+  <dxi-column width="135" dataField="start" caption="Başlangıç" dataType="date" cellTemplate="template2">
+    <div *dxTemplate="let data of 'template2'">
+      <ng-template [ngIf]="data.data.before == 0">
+        <dx-date-box
+          [value]="data.value"
+          (onBlur)="post(data.data, $event.component._changedValue, 'start')">
+        </dx-date-box>
+      </ng-template>
+    </div>
+  </dxi-column>
+  <dxi-column width="135" dataField="end" caption="Bitiş" dataType="date" cellTemplate="template3">
+    <div *dxTemplate="let data of 'template3'">
+      <dx-date-box
+        [value]="data.value"
+        (onBlur)="post(data.data, $event.component._changedValue, 'end')">
+      </dx-date-box>
+    </div>
+  </dxi-column>
+  <dxi-column width="70" dataField="progress" caption="İlerleme" cellTemplate="template4">
+    <div *dxTemplate="let data of 'template4'">
+      <dx-number-box
+        [max]="1"
+        [min]="0"
+        [step]="0.1"
+        format="%#0"
+        [value]="data.value / 100"
+        (onBlur)="post(data.data, +$event.component._changedValue.substring(1), 'progress')">
+      </dx-number-box>
+    </div>
+  </dxi-column>
+  <dxi-column minWidth="100" width="auto" dataField="before" caption="Önceki" cellTemplate="template5">
+    <div *dxTemplate="let data of 'template5'">
+      <dx-text-box
+        [text]="data.value"
+        (onBlur)="post(data.data, $event.component._changedValue, 'before')">
+      </dx-text-box>
+    </div>
+  </dxi-column>
+  <dxi-column width="auto" dataField="wait" caption="Bekle" cellTemplate="template6">
+    <div *dxTemplate="let data of 'template6'">
+      <dx-text-box
+        [text]="data.value"
+        (onBlur)="post(data.data, $event.component._changedValue, 'wait')">
+      </dx-text-box>
+    </div>
+  </dxi-column>
+</dx-gantt>
