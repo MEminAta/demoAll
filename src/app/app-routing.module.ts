@@ -16,6 +16,7 @@ const routes: Routes = [
   },
   { path: 'add-bid', loadChildren: () => import('./components/crm/add-bid/add-bid.module').then(m => m.AddBidModule) },
   { path: 'add-template', loadChildren: () => import('./components/crm/add-template/add-template.module').then(m => m.AddTemplateModule) },
+  { path: 'demo', loadChildren: () => import('./components/demo/demo.module').then(m => m.DemoModule) },
 ];
 
 @NgModule({

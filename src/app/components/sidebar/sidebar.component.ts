@@ -55,7 +55,7 @@ export class SidebarComponent implements OnInit {
       icon: 'fa fa-plus',
       type: 'single-row',
       active: false,
-      routerLink: 'drag-drop'
+      routerLink: 'demo'
     }
   ]
 }

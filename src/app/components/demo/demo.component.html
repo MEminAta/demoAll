@@ -1,0 +1,29 @@
+<div cdkDropList class="example-list m-3" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let number of numbers" [cdkDragData]="number" cdkDrag>
+    {{number}}
+  </div>
+</div>
+
+
+<div cdkDropList cdkDropListOrientation="horizontal" class="example-list2 m-3" (cdkDropListDropped)="drop($event)">
+  <div class="example-box2" *ngFor="let number of numbers" cdkDrag>{{number}}</div>
+</div>
+
+<div class="m-3">
+  <div *ngFor="let numberList of numberGroups; let i = index">
+    <div
+      id="dragDropTable{{i}}"
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      [cdkDropListConnectedTo]="ids"
+      [cdkDropListData]="numberList"
+      class="example-list2"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box2" *ngFor="let item of numberList" cdkDrag>
+        <app-demo2 style="width: 100%" [id]="item"></app-demo2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
